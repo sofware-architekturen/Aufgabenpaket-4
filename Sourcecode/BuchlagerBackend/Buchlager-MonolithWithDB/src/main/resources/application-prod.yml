@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: BuchlagerBackendMonolithApplication
+
+  # DB properties:
+  datasource:
+    driverClassName: org.h2.Driver
+    password: password
+    url: jdbc:h2:file:./target/buchlager.h2.db
+    #    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update # none, update, create, create-drop
+      show-sql: false
+
+  h2:
+    console:
+      enabled: false
+
+server:
+  port: 8888
