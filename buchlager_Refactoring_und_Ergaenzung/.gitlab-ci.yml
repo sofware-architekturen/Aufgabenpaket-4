@@ -1,0 +1,19 @@
+image: maven:3-amazoncorretto-17
+
+stages:
+  - compile
+  - package
+
+Clean and Compile Projects:
+  stage: compile
+  script:
+    - mvn clean compile
+
+Build artifacts for Services and Servers:
+  stage: package
+  script:
+    - mvn package -DskipTests
+  artifacts:
+    paths:
+      - target/*.jar
+    expire_in: 2 weeks

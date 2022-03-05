@@ -1,0 +1,28 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+
+  # DB properties:
+  datasource:
+    driverClassName: org.h2.Driver
+    password: password
+    # url: jdbc:h2:file:./target/buchlager.h2.db
+    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop # none, update, create, create-drop
+      show-sql: false
+
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: 0
